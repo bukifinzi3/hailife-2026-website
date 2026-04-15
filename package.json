@@ -33,12 +33,5 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "repository": {
-    "type": "git",
-    "url": "git+https://bukifinzi3:REMOVED_TOKEN@github.com/bukifinzi3/hailife-2026-website.git"
-  },
-  "bugs": {
-    "url": "https://github.com/bukifinzi3/hailife-2026-website/issues"
-  },
   "homepage": "https://github.com/bukifinzi3/hailife-2026-website#readme"
 }
