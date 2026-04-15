@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clínica de Olhos Dra. Simone Finzi - Atendimento especializado em oftalmologia com 20 anos de experiência">
+    <meta name="keywords" content="oftalmologia, clínica de olhos, cirurgia de catarata, ceratocone, retina, glaucoma, genética ocular, cirurgia refrativa">
+    <meta name="author" content="Clínica Hailife">
+    <meta property="og:title" content="Clínica Hailife - Clínica de Olhos Dra. Simone Finzi">
+    <meta property="og:description" content="Atendimento especializado em oftalmologia com 20 anos de experiência">
+    <meta property="og:image" content="https://www.clinicahailife.com.br/images/medicas/simone.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.clinicahailife.com.br/">
+    <meta name="theme-color" content="#10b981">
+    <title>Clínica Hailife - Clínica de Olhos Dra. Simone Finzi</title>
+    
+    <!-- Tailwind CSS (via CDN para desenvolvimento) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fontes Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: #1f2937;
+            overflow-x: hidden;
+        }
+        
+        .heading-font {
+            font-family: 'Merriweather', 'Inter', serif;
+        }
+        
+        /* Slider styles */
+        .slider-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        
+        .slider {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 70vh;
+            position: relative;
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: white;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+        
+        .slide-content h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .slide-content p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Navigation */
+        .nav-link {
+            transition: color 0.3s;
+        }
+        
+        .nav-link:hover {
+            color: #10b981;
+        }
+        
+        /* Section spacing */
+        section {
+            padding: 80px 0;
+        }
+        
+        /* Cards */
+        .card {
+            transition: all 0.3s ease;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        /*UNITES/maps-- */
+        .location-card {
+            transition: all 0.3s ease;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .location-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .slide-content p {
+                font-size: 1.1rem;
+            }
+            
+            section {
+                padding: 40px 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    
+    <!-- WhatsApp Floating Button -->
+    <a href="https://api.whatsapp.com/send?l=pt_BR&phone=551141142158&text=Olá%20gostaria%20de%20agendar%20uma%20consulta" 
+       class="whatsapp-float" target="_blank" title="Agendar consulta no WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#home" class="text-2xl font-bold heading-font text-green-700">
+                    <i class="fas fa-eye mr-2"></i>Clínica Hailife
+                </a>
+                
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link font-medium">Início</a>
+                    <a href="#about" class="nav-link font-medium">Quem Somos</a>
+                    <a href="#specialties" class="nav-link font-medium">Especialidades</a>
+                    <a href="#doctors" class="nav-link font-medium">Médicas</a>
+                    <a href="#locations" class="nav-link font-medium">Locais</a>
+                    <a href="#contact" class="nav-link font-medium">Contato</a>
+                </div>
+                
+                <button id="menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+                <a href="#home" class="block py-2 nav-link">Início</a>
+                <a href="#about" class="block py-2 nav-link">Quem Somos</a>
+                <a href="#specialties" class="block py-2 nav-link">Especialidades</a>
+                <a href="#doctors" class="block py-2 nav-link">Médicas</a>
+                <a href="#locations" class="block py-2 nav-link">Locais</a>
+                <a href="#contact" class="block py-2 nav-link">Contato</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Slider -->
+    <section id="home" class="slider-container">
+        <div class="slider">
+            <!-- Slide 1: Adultos e Crianças -->
+            <div class="slide">
+                <img src="/images/slider/slide-1.jpg" alt="Atendimentos de Adultos e Crianças" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Atendimentos de Adultos e Crianças</h1>
+                    <p>Nós cuidamos da saúde ocular da sua família!</p>
+                </div>
+            </div>
+            
+            <!-- Slide 2: Catarata -->
+            <div class="slide">
+                <img src="/images/slider/slide-2.jpg" alt="Cirurgia de Catarata" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Cirurgia de Catarata</h1>
+                    <p>Usamos a mais recente tecnologia para oferecer a maior precisão e os melhores resultados visuais.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 3: Refrativa -->
+            <div class="slide">
+                <img src="/images/slider/slide-3.jpg" alt="Cirurgia Refrativa" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Cirurgia Refrativa</h1>
+                    <p>Miopia, Astigmatismo e Hipermetropia - FemtoLASIK</p>
+                </div>
+            </div>
+            
+            <!-- Slide 4: Segunda Opinião -->
+            <div class="slide">
+                <img src="/images/slider/slide-4.jpg" alt="Segunda Opinião" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Segunda Opinião</h1>
+                    <p>Atendimento por convênios e particular. Solicite uma segunda opinião de nossos especialistas.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 5: Lentes de Contato -->
+            <div class="slide">
+                <img src="/images/slider/slide-5.jpg" alt="Lentes de Contato" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Lentes de Contato Gelatinosas</h1>
+                    <p>Adaptação de lentes especiais para ceratocone.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 6: Entrega Domicílio -->
+            <div class="slide">
+                <img src="/images/slider/slide-6.jpg" alt="Entrega Domicílio" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Entrega a Domicílio</h1>
+                    <p>Consulte a opção de entrega a domicílio pelo WhatsApp.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 7: Retina -->
+            <div class="slide">
+                <img src="/images/slider/slide-7.jpg" alt="Experiência em Retina" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Experiência em Retina</h1>
+                    <p>Excelência no tratamento especializado nas doenças de retina.</p>
+                </div>
+            </div>
+            
+            <!-- Slide 8: Genética Ocular -->
+            <div class="slide">
+                <img src="/images/slider/slide-8.jpg" alt="Centro de Genética" class="w-full h-full object-cover">
+                <div class="slide-content">
+                    <h1>Centro de Genética Ocular</h1>
+                    <p>Testes genéticos e tratamentos para doenças hereditárias oculares.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <button id="prev-btn" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button id="next-btn" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-3 rounded-full hover:bg-opacity-70 transition">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Slider Indicators -->
+        <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="0"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="1"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="2"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="3"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="4"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="5"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="6"></button>
+            <button class="w-3 h-3 rounded-full bg-white" data-slide="7"></button>
+        </div>
+    </section>
+
+    <!-- Sobre a Clínica -->
+    <section id="about" class="bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font mb-4">Bem-vindo à Clínica Hailife</h2>
+                <p class="text-green-700 text-xl">20 anos de dedicação à sua saúde ocular</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        A Clínica Hailife está situada na cidade de São Paulo, a 100 metros da estação do metrô do Paraíso e em uma segunda unidade no Campo Belo, próximo ao Aeroporto de Congonhas.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed">
+                        Possui toda uma infraestrutura moderna capaz de atender às mais diferentes e complexas doenças oftalmológicas. São mais de 20 anos de dedicação para disponibilizar o que há de mais moderno e seguro em oftalmologia clínica e cirúrgica.
+                    </p>
+                    <a href="#contact" class="inline-block bg-green-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                        Agendar Consulta
+                    </a>
+                </div>
+                <div class="text-center">
+                    <img src="/images/medicas/simone.jpg" alt="Dra. Simone Finzi" class="mx-auto rounded-lg shadow-lg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Especialidades -->
+    <section id="specialties" class="bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font mb-4">Nossas Especialidades</h2>
+                <p class="text-gray-600 text-lg">Atendimento completo em todas as áreas da oftalmologia</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="card">
+                    <img src="/images/slider/catarata.jpg" alt="Catarata" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Catarata</h3>
+                        <p class="text-gray-700">Tratamento com tecnologia de ponta para restaurar sua visão.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/genteica.jpg" alt="Genética Ocular" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Genética Ocular</h3>
+                        <p class="text-gray-700">Um dos centros pioneiros em genética ocular do Brasil.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/refrativa.jpg" alt="Cirurgia Refrativa" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Cirurgia Refrativa</h3>
+                        <p class="text-gray-700">FemtoLASIK para correção de miopia, astigmatismo e hipermetropia.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/oftalmopediatria.jpg" alt="Oftalmopediatria" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Oftalmopediatria</h3>
+                        <p class="text-gray-700">Cuidados oftalmológicos especializados para crianças.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/visaosubnormal.jpg" alt="Visão Subnormal" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Visão Subnormal</h3>
+                        <p class="text-gray-700">Reabilitação para pacientes com baixa visão.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/plasticaocular.jpg" alt="Plástica Ocular" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Plástica Ocular</h3>
+                        <p class="text-gray-700">Tratamentos estéticos e funcionais da região ocular.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/glaucoma.jpg" alt="Glaucoma" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Glaucoma</h3>
+                        <p class="text-gray-700">Diagnóstico e tratamento preventivo da pressão ocular.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/lentesdecontato.jpg" alt="Lentes de Contato" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Lentes de Contato</h3>
+                        <p class="text-gray-700">Adaptação de lentes especiais para ceratocone e outras condições.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/retina.jpg" alt="Retina" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Retina Clínica e Cirúrgica</h3>
+                        <p class="text-gray-700">Tratamento de doenças da retina e vítreo.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/ceratocone.jpg" alt="Ceratocone" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Ceratocone</h3>
+                        <p class="text-gray-700">Tratamentos avançados para deformidade da córnea.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/estrabismo.jpg" alt="Este sigma" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Estigmas</h3>
+                        <p class="text-gray-700">Tratamento de desalinhamento ocular em crianças e adultos.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <img src="/images/slider/cornea.jpg" alt="Corneia" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold mb-3">Corneia e Transplante</h3>
+                        <p class="text-gray-700">Transplante de córnea e tratamentos de superfície ocular.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="https://www.clinicahailife.com.br/especialidades/" 
+                   class="inline-block text-green-600 font-semibold hover:underline">
+                    Ver todas as especialidades &rarr;
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Médicas -->
+    <section id="doctors" class="bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font mb-4">Nossas Médicas</h2>
+                <p class="text-gray-600 text-lg">Equipe de especialistas altamente qualificada</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Dra. Simone Finzi -->
+                <div class="text-center">
+                    <img src="/images/medicas/simone.jpg" alt="Dra. Simone Finzi" class="mx-auto rounded-lg shadow-2xl max-w-md">
+                    <h3 class="text-2xl font-bold mt-6 heading-font">Dra. Simone Finzi</h3>
+                    <p class="text-green-600 font-medium">Médica Oftalmologista - CRM 85608</p>
+                    
+                    <div class=" mt-6 text-left space-y-3">
+                        <p class="text-gray-700">
+                            Formada em Medicina pela Santa Casa de São Paulo (FCMSCSP), realizou residência médica em Oftalmologia e especializou-se em Glaucoma no New England Eye Center, Boston – EUA e Genética Ocular no Wilmer Eye Institute – Johns Hopkins Hospital.
+                        </p>
+                        <p class="text-gray-700">
+                            Obteve seu Doutorado em Oftalmologia na UNIFESP. Ex-chefe do setor de Genética Ocular do Hospital das Clínicas da Faculdade de Medicina da Universidade de São Paulo (HC-FMUSP).
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- Dra. Liliana Campos -->
+                <div class="text-center">
+                    <img src="/images/medicas/liliana.jpg" alt="Dra. Liliana Campos" class="mx-auto rounded-lg shadow-2xl max-w-md">
+                    <h3 class="text-2xl font-bold mt-6 heading-font">Dra. Liliana Campos</h3>
+                    <p class="text-green-600 font-medium">Médica Oftalmologista</p>
+                    
+                    <div class=" mt-6 text-left space-y-3">
+                        <p class="text-gray-700">
+                            Especialista em diversas áreas da oftalmologia, trazendo experiência e cuidado humanizado para cada paciente.
+                        </p>
+                        <p class="text-gray-700">
+                            A Dra. Liliana complementa nossa equipe com atendimento em diversas especialidades oftalmológicas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Unidades -->
+    <section id="locations" class="bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font mb-4">Nossas Unidades</h2>
+                <p class="text-gray-600 text-lg">Dois locais estratégicos em São Paulo</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Unidade Paraíso -->
+                <div class="location-card">
+                    <img src="/images/unidades/paraiso.jpg" alt="Unidade Paraíso" class="w-full h-64 object-cover">
+                    <div class="p-6 bg-white">
+                        <h3 class="text-2xl font-bold mb-4 heading-font">Unidade Paraíso</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-green-600 mr-3 mt-1"></i>
+                                <span>Rua Correia Dias, 184, cj. 62<br>Paraíso - SP<br>CEP: 04104-000</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-green-600 mr-3"></i>
+                                <span>(11) 4114-2158</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-green-600 mr-3"></i>
+                                <span>Seg/Qua/Sex | 13h-19h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <a href="https://www.google.com/maps/place/Clinica+Hailife+_+Unidade+Paraiso" 
+                               target="_blank" 
+                               class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg mr-2 hover:bg-blue-700 transition">
+                                Ver no Google Maps
+                            </a>
+                            <a href="https://www.waze.com/ul?place=ChIJqZ5rg5BZzpQRil760buBLgs" 
+                               target="_blank" 
+                               class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
+                                Ver no Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Unidade Campo Belo -->
+                <div class="location-card">
+                    <img src="/images/unidades/campobelo.jpg" alt="Unidade Campo Belo" class="w-full h-64 object-cover">
+                    <div class="p-6 bg-white">
+                        <h3 class="text-2xl font-bold mb-4 heading-font">Unidade Campo Belo</h3>
+                        <div class="space-y-3 text-gray-700">
+                            <div class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-green-600 mr-3 mt-1"></i>
+                                <span>Rua Vieira de Moraes, 2110, cj. 207<br>Campo Belo - SP<br>CEP: 04617-007</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-green-600 mr-3"></i>
+                                <span>(11) 2574-7858</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-phone text-green-600 mr-3"></i>
+                                <span>(11) 4114-2158</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-green-600 mr-3"></i>
+                                <span>Seg/Qua/Sex | 13h-19h</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <a href="https://www.google.com/maps/place/Clinica+Hailife+-+Unidade+Campo+Belo" 
+                               target="_blank" 
+                               class="inline-block bg-blue-600 text-white px-6 py-3 rounded-lg mr-2 hover:bg-blue-700 transition">
+                                Ver no Google Maps
+                            </a>
+                            <a href="https://www.waze.com/ul?place=ChIJL2a9IzZbzpQRgvAZjp8_Szc" 
+                               target="_blank" 
+                               class="inline-block bg-orange-500 text-white px-6 py-3 rounded-lg hover:bg-orange-600 transition">
+                                Ver no Waze
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="bg-green-700 text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-4">O Que Nossos Pacientes Dizem</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+                    <p class="italic mb-4">"A Dra. Simone é extremamente competente e atenciosa, com uma formação acadêmica impecável. Sempre sou muito bem atendida e não troco de oftalmologista por nada. Sem contar que a localização do consultório é de acesso super fácil."</p>
+                    <p class="font-semibold">- L.S.</p>
+                </div>
+                
+                <div class="bg-white bg-opacity-20 p-6 rounded-lg">
+                    <p class="italic mb-4">"Ótima profissional. Passei por vários médicos mas nenhum conseguiu descobrir o meu problema. Parabéns Dra. Simone, super te recomendo. Obrigada."</p>
+                    <p class="font-semibold">- M.R.S.C.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contato -->
+    <section id="contact" class="bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl font-bold heading-font mb-4">Entre em Contato</h2>
+                <p class="text-gray-600 text-lg">Estamos prontos para atender você</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 heading-font">Agende sua consulta</h3>
+                    <a href="https://api.whatsapp.com/send?l=pt_BR&phone=551141142158&text=Olá%20gostaria%20de%20agendar%20uma%20consulta" 
+                       target="_blank"
+                       class="flex items-center bg-green-600 text-white px-8 py-4 rounded-lg hover:bg-green-700 transition mb-6">
+                        <i class="fab fa-whatsapp text-3xl mr-4"></i>
+                        <div>
+                            <span class="block font-bold">Agendar no WhatsApp</span>
+                            <span class="text-green-200">Atendimento rápido e direto</span>
+                        </div>
+                    </a>
+                    <p class="text-gray-600 mt-4">
+                        Ou ligar: <a href="tel:551141142158" class="text-green-600 font-semibold">(11) 4114-2158</a>
+                    </p>
+                </div>
+                
+                <div class="text-gray-600 space-y-4">
+                    <div class="flex items-center">
+                        <i class="fas fa-envelope text-green-600 mr-3 text-xl"></i>
+                        <span>clinicahailife@gmail.com</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-globe text-green-600 mr-3 text-xl"></i>
+                        <span>www.clinicahailife.com.br</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold heading-font mb-4">
+                        <i class="fas fa-eye mr-2 text-green-500"></i>Clínica Hailife
+                    </h3>
+                    <p class="text-gray-400">Atendimento especializado em oftalmologia</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#home" class="hover:text-green-500">Início</a></li>
+                        <li><a href="#specialties" class="hover:text-green-500">Especialidades</a></li>
+                        <li><a href="#doctors" class="hover:text-green-500">Médicas</a></li>
+                        <li><a href="#locations" class="hover:text-green-500">Locais</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contato</h4>
+                    <p class="text-gray-400 mb-2">(11) 4114-2158</p>
+                    <p class="text-gray-400">clinicahailife@gmail.com</p>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/clinicahailife" target="_blank" class="text-blue-600 hover:text-blue-800">
+                            <i class="fab fa-facebook fa-2x"></i>
+                        </a>
+                        <a href="https://www.instagram.com/clinicahailife" target="_blank" class="text-pink-600 hover:text-pink-800">
+                            <i class="fab fa-instagram fa-2x"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/clinicahailife" target="_blank" class="text-blue-700 hover:text-blue-900">
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2026 Clínica Hailife - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Slider Functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const indicators = document.querySelectorAll('[data-slide]');
+        
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.display = i === index ? 'block' : 'none';
+            });
+            
+            indicators.forEach((indicator, i) => {
+                indicator.classList.toggle('bg-green-500', i === index);
+                indicator.classList.toggle('bg-white', i !== index);
+            });
+        }
+        
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        function prevSlide() {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+        
+        // Auto-play slider
+        let slideInterval;
+        
+        function startAutoPlay() {
+            slideInterval = setInterval(nextSlide, 6000); // 6 seconds per slide
+        }
+        
+        function stopAutoPlay() {
+            clearInterval(slideInterval);
+        }
+        
+        // Event Listeners
+        nextBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            nextSlide();
+            startAutoPlay();
+        });
+        
+        prevBtn.addEventListener('click', () => {
+            stopAutoPlay();
+            prevSlide();
+            startAutoPlay();
+        });
+        
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                stopAutoPlay();
+                currentSlide = parseInt(indicator.getAttribute('data-slide'));
+                showSlide(currentSlide);
+                startAutoPlay();
+            });
+        });
+        
+        // Initialize
+        showSlide(0);
+        startAutoPlay();
+        
+        // Stop auto-play on mouse hover
+        document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoPlay);
+        document.querySelector('.slider-container').addEventListener('mouseleave', startAutoPlay);
+    </script>
+</body>
+</html>
